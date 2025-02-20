@@ -1,0 +1,130 @@
+/* Define o estilo do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    background-image: url(''); /* Define a imagem de fundo */
+}
+
+/* Define o estilo do contêiner de registro */
+.register {
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Alinha os itens ao centro verticalmente */
+    justify-content: center; /* Alinha os itens ao centro horizontalmente */
+    min-height: 100vh; /* Define a altura mínima como 100% da altura da viewport */
+    background: rgba(0, 0, 0, 0.5); /* Define um fundo semi-transparente */
+    font-family: 'Poppins', sans-serif; /* Define a fonte para o contêiner */
+}
+
+/* Define o estilo do formulário dentro do contêiner de registro */
+.register form {
+    width: 360px; /* Define a largura do formulário */
+    background: #6b6666; /* Define a cor de fundo do formulário */
+    padding: 40px; /* Define o preenchimento interno */
+    border-radius: 8px; /* Arredonda os cantos */
+    box-shadow: 0 0 20px 0 #ffffff; /* Adiciona uma sombra ao redor do formulário */
+}
+
+/* Define o estilo do botão "Continuar" */
+.register input[type="button"] {
+    width: 100%; /* Define a largura como 100% do contêiner pai */
+    padding: 12px; /* Define o preenchimento interno */
+    border: none; /* Remove a borda */
+    border-radius: 6px; /* Arredonda os cantos */
+    background: #000000; /* Define a cor de fundo */
+    color: #ffffff; /* Define a cor do texto */
+    font-size: 1em; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define a espessura da fonte */
+    cursor: pointer; /* Define o cursor como ponteiro */
+    margin-top: 20px; /* Define a margem superior */
+}
+
+/* Define o estilo do botão "Continuar" quando o mouse está sobre ele */
+.register input[type="button"]:hover {
+    background: #6f726d; /* Define a cor de fundo do formulário */
+    
+}
+
+/* Define o estilo do título dentro do formulário */
+.register h2 {
+    color: #ffffff; /* Define a cor do texto */
+    font-size: 2em; /* Define o tamanho da fonte */
+    margin-bottom: 20px; /* Define a margem inferior */
+    font-weight: 600; /* Define a espessura da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 5px; /* Define a margem superior */
+    border-bottom: 1px solid rgb(202, 200, 200); /* Adiciona uma borda inferior */
+    margin-bottom: 10%; /* Define a margem inferior */
+}
+
+/* Define o estilo dos rótulos dentro do formulário */
+.register label {
+    font-weight: 500; /* Define a espessura da fonte */
+    color: #080101; /* Define a cor do texto */
+}
+
+/* Define o estilo dos campos de texto e senha dentro do formulário */
+.register input[type="text"],
+.register input[type="password"] {
+    width: 100%; /* Define a largura como 100% do contêiner pai */
+    padding: 12px; /* Define o preenchimento interno */
+    margin-top: 10px; /* Define a margem superior */
+    background: rgb(252, 252, 252); /* Define a cor de fundo */
+    border: 1px solid rgb(252, 252, 252); /* Define a cor da borda */
+    border-radius: 6px; /* Arredonda os cantos */
+    font-size: 1em; /* Define o tamanho da fonte */
+}
+
+/* Define o estilo dos campos de texto e senha quando estão em foco */
+.register input[type="text"]:focus,
+.register input[type="password"]:focus {
+    border: 1px solid #000000; /* Define a cor da borda quando em foco */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.register select {
+    width: 107%; /* Define a largura como 100% do contêiner pai */
+    padding: 12px; /* Define o preenchimento interno */
+    margin-top: 10px; /* Define a margem superior */
+    background: rgb(252, 252, 252); /* Define a cor de fundo */
+    border: 1px solid rgb(252, 252, 252); /* Define a cor da borda */
+    border-radius: 6px; /* Arredonda os cantos */
+    font-size: 1em; /* Define o tamanho da fonte */
+}
+
+/* Define o estilo do botão de envio */
+.register input[type="submit"] {
+    width: 100%; /* Define a largura como 100% do contêiner pai */
+    padding: 12px; /* Define o preenchimento interno */
+    border: none; /* Remove a borda */
+    border-radius: 6px; /* Arredonda os cantos */
+    background: #000000; /* Define a cor de fundo */
+    color: #ffffff; /* Define a cor do texto */
+    font-size: 1em; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define a espessura da fonte */
+    cursor: pointer; /* Define o cursor como ponteiro */
+    margin-top: 20px; /* Define a margem superior */
+}
+
+/* Define o estilo do botão de envio quando o mouse está sobre ele */
+.register input[type="submit"]:hover {
+    background: #6f726d; /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Define o estilo dos parágrafos dentro do formulário */
+.register p {
+    margin: 15px 0; /* Define a margem superior e inferior */
+    color: #080101; /* Define a cor do texto */
+}
+
+/* Define o estilo dos links dentro dos parágrafos */
+.register p a {
+    color: #ffffff; /* Define a cor do link */
+    text-decoration: none; /* Remove a sublinha */
+    font-weight: 500; /* Define a espessura da fonte */
+}
+
+/* Define o estilo dos links quando o mouse está sobre eles */
+.register p a:hover {
+    color: #000000; /* Muda a cor do link ao passar o mouse */
+}

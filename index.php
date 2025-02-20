@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastrar.css">
+    <title>Formulário de Cadastro</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showAdditionalFields() {
+            document.getElementById('initial-fields').classList.add('hidden');
+            document.getElementById('additional-fields').classList.remove('hidden');
+            document.getElementById('continue-button').classList.add('hidden');
+            document.getElementById('submit-button').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+<div class="register">
+    <form action=" " method="post">
+        <h2>Cadastre-se</h2>
+        <div id="initial-fields">
+
+            <p>
+                <label for="nome"><b>Nome:</b></label><br>
+                <input type="text" name="nome" <?php if(isset($_POST['nome'])) echo $_POST['nome']; ?> id="nome" required placeholder="Informe seu nome"/>
+            </p>
+            
+            <p>
+                <label for="email"><b>E-mail:</b></label><br>
+                <input type="text" name="email" <?php if(isset($_POST['email'])) echo $_POST['email']; ?> id="email" required placeholder="Informe seu e-mail" />
+            </p>
+
+            <p>
+                <label for="senha"><b>Senha:</b></label><br>
+                <input type="password" name="senha" <?php if(isset($_POST['senha'])) echo $_POST['senha']; ?> id="senha" required placeholder="Informe a senha"/>
+            </p>
+        </div>
+
+        <div id="additional-fields" class="hidden">
+            <p>
+                <label for="cidade"><b>Cidade:</b></label><br>
+                <select id="cidade" name="cidade">
+                    <option value="Samambaia norte" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Samambaia norte') echo 'selected'; ?>>Samambaia Norte</option>
+                    <option value="Ceilandia" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Ceilandia') echo 'selected'; ?>>Ceilândia</option>
+                    <option value="Plano Piloto" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Plano Piloto') echo 'selected'; ?>>Plano Piloto</option>
+                    <option value="Taguatinga" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Taguatinga') echo 'selected'; ?>>Taguatinga</option>
+                    <option value="Águas Claras" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Águas Claras') echo 'selected'; ?>>Águas Claras</option>
+                    <option value="Sobradinho" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sobradinho') echo 'selected'; ?>>Sobradinho</option>
+                    <option value="Sobradinho II" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sobradinho II') echo 'selected'; ?>>Sobradinho II</option>
+                    <option value="Guará" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Guará') echo 'selected'; ?>>Guará</option>
+                    <option value="Núcleo Bandeirante" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Núcleo Bandeirante') echo 'selected'; ?>>Núcleo Bandeirante</option>
+                    <option value="Lago Norte" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Lago Norte') echo 'selected'; ?>>Lago Norte</option>
+                    <option value="Lago Sul" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Lago Sul') echo 'selected'; ?>>Lago Sul</option>
+                    <option value="Gama" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Gama') echo 'selected'; ?>>Gama</option>
+                    <option value="Santa Maria" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Santa Maria') echo 'selected'; ?>>Santa Maria</option>
+                    <option value="Recanto das Emas" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Recanto das Emas') echo 'selected'; ?>>Recanto das Emas</option>
+                    <option value="Riacho Fundo" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Riacho Fundo') echo 'selected'; ?>>Riacho Fundo</option>
+                    <option value="Riacho Fundo II" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Riacho Fundo II') echo 'selected'; ?>>Riacho Fundo II</option>
+                    <option value="Candangolândia" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Candangolândia') echo 'selected'; ?>>Candangolândia</option>
+                    <option value="São Sebastião" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'São Sebastião') echo 'selected'; ?>>São Sebastião</option>
+                    <option value="Paranoá" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Paranoá') echo 'selected'; ?>>Paranoá</option>
+                    <option value="Jardim Botânico" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Jardim Botânico') echo 'selected'; ?>>Jardim Botânico</option>
+                    <option value="Itapoã" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Itapoã') echo 'selected'; ?>>Itapoã</option>
+                    <option value="Varjão" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Varjão') echo 'selected'; ?>>Varjão</option>
+                    <option value="Cruzeiro" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Cruzeiro') echo 'selected'; ?>>Cruzeiro</option>
+                    <option value="Sudoeste/Octogonal" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sudoeste/Octogonal') echo 'selected'; ?>>Sudoeste/Octogonal</option>
+                    <option value="Céu Azul" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Céu Azul') echo 'selected'; ?>>Céu Azul</option>
+                    <option value="Fercal" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Fercal') echo 'selected'; ?>>Fercal</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="telefone"><b>Telefone:</b></label><br>
+                <input type="text" name="telefone" <?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?> id="telefone" required placeholder="Informe seu telefone" />
+            </p>
+
+            <p>
+                <label for="endereco"><b>Endereço:</b></label><br>
+                <input type="text" name="endereco" <?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?> id="endereco" required placeholder="Informe seu endereço"/>
+            </p>
+        </div>
+
+        <p id="continue-button">
+            <input type="button" value="Continuar" onclick="showAdditionalFields()">
+        </p>
+
+        <p id="submit-button" class="hidden">
+            <input type="submit" value="Cadastrar">
+        </p>
+
+        <p>
+            Já possui uma conta? <a href=" ">Clique aqui</a>
+        </p>
+    </form>
+</div>
+</body>
+</html>
