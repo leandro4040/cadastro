@@ -4,98 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastrar.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+    </style>
     <title>Formulário de Cadastro</title>
     <style>
-        .hidden {
-            display: none;
+        /* Estilo geral do formulário */
+        .register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(248, 178, 72, 0.5);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
+            grid-gap: 20px; /* Espaçamento entre as colunas */
+            width: 600px;
+            background: #eb9c09;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px 0 #000000;
+        }
+
+        form h2 {
+            color: #ffffff;
+            font-size: 2em;
+            font-weight: 600;
+            text-align: center;
+            grid-column: span 2; /* Faz com que o título ocupe as duas colunas */
+        }
+
+        /* Estilo dos campos de entrada */
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: rgb(252, 252, 252);
+            border: 1px solid rgb(252, 252, 252);
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border: 1px solid #000000;
+            outline: none;
+        }
+
+        /* Estilo do botão de submit */
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #c7b462;
+        }
+
+        /* Estilo do link */
+        p a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            color: #0044ff;
         }
     </style>
-    <script>
-        function showAdditionalFields() {
-            document.getElementById('initial-fields').classList.add('hidden');
-            document.getElementById('additional-fields').classList.remove('hidden');
-            document.getElementById('continue-button').classList.add('hidden');
-            document.getElementById('submit-button').classList.remove('hidden');
-        }
-    </script>
 </head>
 <body>
 <div class="register">
     <form action=" " method="post">
         <h2>Cadastre-se</h2>
-        <div id="initial-fields">
 
-            <p>
-                <label for="nome"><b>Nome:</b></label><br>
-                <input type="text" name="nome" <?php if(isset($_POST['nome'])) echo $_POST['nome']; ?> id="nome" required placeholder="Informe seu nome"/>
-            </p>
-            
-            <p>
-                <label for="email"><b>E-mail:</b></label><br>
-                <input type="text" name="email" <?php if(isset($_POST['email'])) echo $_POST['email']; ?> id="email" required placeholder="Informe seu e-mail" />
-            </p>
-
-            <p>
-                <label for="senha"><b>Senha:</b></label><br>
-                <input type="password" name="senha" <?php if(isset($_POST['senha'])) echo $_POST['senha']; ?> id="senha" required placeholder="Informe a senha"/>
-            </p>
+        <div>
+            <label for="nome"><b>Nome:</b></label><br>
+            <input type="text" name="nome" id="nome" required placeholder="Informe seu nome"/>
+        </div>
+        
+        <div>
+            <label for="email"><b>E-mail:</b></label><br>
+            <input type="text" name="email" id="email" required placeholder="Informe seu e-mail" />
         </div>
 
-        <div id="additional-fields" class="hidden">
-            <p>
-                <label for="cidade"><b>Cidade:</b></label><br>
-                <select id="cidade" name="cidade">
-                    <option value="Samambaia norte" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Samambaia norte') echo 'selected'; ?>>Samambaia Norte</option>
-                    <option value="Ceilandia" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Ceilandia') echo 'selected'; ?>>Ceilândia</option>
-                    <option value="Plano Piloto" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Plano Piloto') echo 'selected'; ?>>Plano Piloto</option>
-                    <option value="Taguatinga" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Taguatinga') echo 'selected'; ?>>Taguatinga</option>
-                    <option value="Águas Claras" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Águas Claras') echo 'selected'; ?>>Águas Claras</option>
-                    <option value="Sobradinho" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sobradinho') echo 'selected'; ?>>Sobradinho</option>
-                    <option value="Sobradinho II" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sobradinho II') echo 'selected'; ?>>Sobradinho II</option>
-                    <option value="Guará" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Guará') echo 'selected'; ?>>Guará</option>
-                    <option value="Núcleo Bandeirante" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Núcleo Bandeirante') echo 'selected'; ?>>Núcleo Bandeirante</option>
-                    <option value="Lago Norte" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Lago Norte') echo 'selected'; ?>>Lago Norte</option>
-                    <option value="Lago Sul" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Lago Sul') echo 'selected'; ?>>Lago Sul</option>
-                    <option value="Gama" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Gama') echo 'selected'; ?>>Gama</option>
-                    <option value="Santa Maria" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Santa Maria') echo 'selected'; ?>>Santa Maria</option>
-                    <option value="Recanto das Emas" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Recanto das Emas') echo 'selected'; ?>>Recanto das Emas</option>
-                    <option value="Riacho Fundo" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Riacho Fundo') echo 'selected'; ?>>Riacho Fundo</option>
-                    <option value="Riacho Fundo II" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Riacho Fundo II') echo 'selected'; ?>>Riacho Fundo II</option>
-                    <option value="Candangolândia" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Candangolândia') echo 'selected'; ?>>Candangolândia</option>
-                    <option value="São Sebastião" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'São Sebastião') echo 'selected'; ?>>São Sebastião</option>
-                    <option value="Paranoá" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Paranoá') echo 'selected'; ?>>Paranoá</option>
-                    <option value="Jardim Botânico" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Jardim Botânico') echo 'selected'; ?>>Jardim Botânico</option>
-                    <option value="Itapoã" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Itapoã') echo 'selected'; ?>>Itapoã</option>
-                    <option value="Varjão" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Varjão') echo 'selected'; ?>>Varjão</option>
-                    <option value="Cruzeiro" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Cruzeiro') echo 'selected'; ?>>Cruzeiro</option>
-                    <option value="Sudoeste/Octogonal" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Sudoeste/Octogonal') echo 'selected'; ?>>Sudoeste/Octogonal</option>
-                    <option value="Céu Azul" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Céu Azul') echo 'selected'; ?>>Céu Azul</option>
-                    <option value="Fercal" <?php if(isset($_POST['cidade']) && $_POST['cidade'] == 'Fercal') echo 'selected'; ?>>Fercal</option>
-                </select>
-            </p>
-
-            <p>
-                <label for="telefone"><b>Telefone:</b></label><br>
-                <input type="text" name="telefone" <?php if(isset($_POST['telefone'])) echo $_POST['telefone']; ?> id="telefone" required placeholder="Informe seu telefone" />
-            </p>
-
-            <p>
-                <label for="endereco"><b>Endereço:</b></label><br>
-                <input type="text" name="endereco" <?php if(isset($_POST['endereco'])) echo $_POST['endereco']; ?> id="endereco" required placeholder="Informe seu endereço"/>
-            </p>
+        <div>
+            <label for="senha"><b>Senha:</b></label><br>
+            <input type="password" name="senha" id="senha" required placeholder="Informe a senha"/>
         </div>
 
-        <p id="continue-button">
-            <input type="button" value="Continuar" onclick="showAdditionalFields()">
-        </p>
+        <div>
+            <label for="cidade"><b>Cidade:</b></label><br>
+            <select id="cidade" name="cidade">
+                <option value="Samambaia norte">Samambaia Norte</option>
+                <option value="Ceilandia">Ceilândia</option>
+                <option value="Plano Piloto">Plano Piloto</option>
+                <option value="Taguatinga">Taguatinga</option>
+                <option value="Águas Claras">Águas Claras</option>
+                <!-- Outras opções... -->
+            </select>
+        </div>
 
-        <p id="submit-button" class="hidden">
+        <div>
+            <label for="telefone"><b>Telefone:</b></label><br>
+            <input type="text" name="telefone" id="telefone" required placeholder="Informe seu telefone" />
+        </div>
+
+        <div>
+            <label for="endereco"><b>Endereço:</b></label><br>
+            <input type="text" name="endereco" id="endereco" required placeholder="Informe seu endereço"/>
+        </div>
+
+        <div style="grid-column: span 2; text-align: center;">
             <input type="submit" value="Cadastrar">
-        </p>
+        </div>
 
-        <p>
-            Já possui uma conta? <a href=" ">Clique aqui</a>
-        </p>
+        <div style="grid-column: span 2; text-align: center;">
+            <p>Já possui uma conta? <a href=" ">Clique aqui</a></p>
+        </div>
     </form>
 </div>
 </body>
