@@ -10,7 +10,5 @@ if(count($_POST)>0)
     $senha = $_POST['senha'];
     $email = $_POST['email'];
     $cidade = $_POST['cidade'];
-    $endereco = $_POST['endereco'];
-    $numero = $_POST['numero'];
-    
+    $endereco = $_POST['endereco'];    
 }
